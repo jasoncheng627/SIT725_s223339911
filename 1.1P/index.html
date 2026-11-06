@@ -1,35 +1,26 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html> <!-- declare this file as an HTML5 document -->
+<html lang="en"> <!--Root element; page language is english -->
+<head> <!--page settings, not shown on screen -->
+    <meta charset="utf-8"> <!--use UTF-8 so all characters display correctly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--scale correctly on mobile -->
+    <title>SIT 725 Prac 1</title> <!--text shown on browser tab -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> <!--linking the outside css file into this website, presenting a url locating the file location. Load the Materialize CSS framework from a CDN URL; .min means it is a minified (smaller) file that loads faster -->
+    <link rel="stylesheet" href="css/styles.css"> <!--finding styles.css from css folder -->
+</head> <!--ending head -->
 
-  <title>SIT 725 Prac 1</title>
-  <meta name="description" content="basic template for SIT 725 Prac 1">
-
-  <meta property="og:title" content="SIT 725 Prac 1">
-  <meta property="og:type" content="website">
-  <meta property="og:description" content="basic template for SIT 725 Prac 1">
-
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col s12">
-        <h1 id="heading" class="center-align">SIT 725</h1>
-      </div>
-      <div class="col s12 center-align">
-        <a class="waves-effect waves-light btn" onclick="changeText()">Change Text</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="js/scripts.js"></script>
-</body>
-</html>
+<body> <!-- Start of the body, everything inside is visible on the page -->
+    <div class="container"> <!--materialize container, centre the content and add spcae on left and right-->
+        <div class="row"> <!--a row in the materialize grid; each row is split into 12 colums -->
+            <div class="col s12"> <!-- a colume that takes all 12 colums (full width)-->
+                <h1 id="heading" class="center-align">SIT 725</h1> <!--main heading, let javascript find the id= "heading" and change the text -->
+            </div> <!-- end of the heading column -->
+            <div class="col s12 center-align"> <!-- full width column for the button; center-align puts the button in the middle -->
+                <a class="waves-effect waves-light btn" onclick="changeText()">Change Text</a> <!-- button styled by materialize with a ripple effect; when clicked, it runs changedText() in scripts.js -->
+            </div> <!-- end of the button column -->
+        </div> <!-- end of the row -->
+    </div> <!-- end of the container -->
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> <!-- Load Materialize JavaScript for interactive effects like the button ripple -->
+    <script src="js/scripts.js"></script> <!-- Load custom JavaScript -->
+</body> <!-- end of the body -->
+</html> <!-- end of the HTML document -->
