@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SIT725 Calculator</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; }
+    input, select, button { padding: 8px; margin: 4px; font-size: 16px; }
+    #result { margin-top: 20px; font-size: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Express Calculator</h1>
+  <p>This page is served from the <code>public</code> folder and calls the Express API.</p>
+
+  <input type="number" id="a" placeholder="First number">
+  <select id="operation">
+    <option value="add">+</option>
+    <option value="subtract">-</option>
+    <option value="multiply">×</option>
+    <option value="divide">÷</option>
+  </select>
+  <input type="number" id="b" placeholder="Second number">
+  <br>
+  <button onclick="calcWithGet()">Calculate (GET)</button>
+  <button onclick="calcWithPost()">Calculate (POST)</button>
+
+  <div id="result"></div>
+
+  <script>
+    function show(data) {
+      document.getElementById('result').textContent =
+        data.error ? 'Error: ' + data.error : 'Result: ' + data.result;
+    }
+
+    async function calcWithGet() {
+      const a = document.getElementById('a').value;
+      const b = document.getElementById('b').value;
+      const op = document.getElementById('operation').value;
+      const res = await fetch(`/calc/${op}?a=${a}&b=${b}`);
+      show(await res.json());
+    }
+
+    async function calcWithPost() {
+      const res = await fetch('/calc', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          a: document.getElementById('a').value,
+          b: document.getElementById('b').value,
+          operation: document.getElementById('operation').value
+        })
+      });
+      show(await res.json());
+    }
+  </script>
+</body>
+</html>
